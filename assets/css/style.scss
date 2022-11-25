@@ -3,15 +3,15 @@
 
 @import "{{ site.theme }}";
 
-.body {
+body {
     background: none;
     background-color: #1B1B1B;
 }
 
-.header {
+header {
     background: linear-gradient(#FFC532, #F5B207);
 }
 
-.section {
+section {
     background-color: #F3F3F3;
 }
