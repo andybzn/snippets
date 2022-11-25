@@ -1,4 +1,6 @@
-# rust snippets
+# 🦀 rust
+
+useful code for the crab language
 
 ## read from file
 
