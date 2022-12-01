@@ -1,21 +1,15 @@
 # T-SQL
 
-## Get the Adhoc Query Percentage from the server
+## get percentage of adhoc queries 
 
-```t-sql
--- Select SQLServerVersion as variable.
+```sql
 DECLARE @SQLServerVersion VARCHAR(2);
 SET @SQLServerVersion = CONVERT(VARCHAR,(SELECT value_data FROM sys.dm_server_registry WHERE value_name = 'CurrentVersion'));
--- Declare the TotalCacheMB variable.
 DECLARE @TotalCacheMB VARCHAR(14);
--- Set the TotalCacheMB variable.
 IF @SQLServerVersion <= 12
-    -- SQL2014 and below.
     SET @TotalCacheMB = 'Total_CacheMB';
 ELSE 
-    -- All other versions.
     SET @TotalCacheMB = 'Total_Cache_MB';
--- Declare and set the query.
 DECLARE @AdHocPlanQuery NVARCHAR(MAX);
 SET @AdHocPlanQuery = '
     SELECT
@@ -29,6 +23,5 @@ SET @AdHocPlanQuery = '
             SUM(CONVERT(BIGINT,size_in_bytes)) / 1048576.0 '+ @TotalCacheMB +'
     FROM sys.dm_exec_cached_plans) T
 ';
--- Execute the query.
 EXEC sp_executesql @AdHocPlanQuery;
 ```
