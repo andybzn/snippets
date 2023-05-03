@@ -1,6 +1,7 @@
 This repo contains a handful of code snippets that I find useful, organised by language! 
 
-- [Rust](rust.md)
-- [PowerShell](powershell.md)
-- [Python](python.md)
+- [PowerShell](pages/powershell.md)
+- [Python](pagespython.md)
+- [Rust](pages/rust.md)
+- [Shell](pages/shell.md)
 - [T-SQL](pages/tsql.md)
